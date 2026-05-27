@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V/ADiver Pro | Next-Gen Operations</title>
+    
+    <!-- ⚓ ESTILOS BASE DE LA LIBRERÍA SWIPER (ENLACE COMPLETO REAL) -->
+    <link rel="stylesheet" href="jsdelivr.net">
+
+    <!-- ESTILOS PROPIOS DE TU PROYECTO -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ICONOS (FONT AWESOME ENLACE COMPLETO REAL) -->
+    <link rel="stylesheet" href="cloudflare.com">
+
+    <!-- FUENTES -->
+    <link href="googleapis.com" rel="stylesheet">
+
+    <!-- ⚓ MOTOR JAVASCRIPT DE LA LIBRERÍA SWIPER (ENLACE COMPLETO REAL) -->
+    <script src="jsdelivr.net"></script>
+</head>
+
+
+
+<body>
+
+<!-- ========================= -->
+<!-- 🔷 NAVBAR -->
+<!-- ========================= -->
+<nav class="navbar">
+
+    <div class="logo" onclick="location.href='index.html'">
+        V/A<span>DIVER</span>
+    </div>
+    
+    <div class="nav-auth-container">
+
+        <!-- NO LOGUEADO -->
+        <div id="guest-zone">
+            <button class="btn-account" onclick="openModal('registro')">
+                CREAR USUARIO
+            </button>
+
+            <button class="btn-main nav-login-btn" onclick="openModal('login')">
+                <i class="fa-solid fa-right-to-bracket"></i> INICIAR SESIÓN
+            </button>
+        </div>
+
+        <!-- LOGUEADO -->
+        <div id="user-zone" class="user-menu-container" style="display:none;">
+
+            <div class="user-info" onclick="toggleUserMenu()">
+                <img id="user-avatar" alt="avatar">
+                <span id="user-nav-name">Usuario</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+            <div id="user-dropdown" class="dropdown-content">
+                <p class="role-badge" id="user-nav-role">Cliente</p>
+                <hr>
+
+                <!-- PERFIL -->
+                <a href="#" onclick="openPerfilModal()">
+                    <i class="fa-solid fa-user"></i> Mi Perfil
+                </a>
+
+                <!-- CARRITO -->
+                <a href="#" onclick="event.preventDefault(); CarritoPro.toggleSidebar(); toggleUserMenu();">
+                    <i class="fa-solid fa-cart-shopping"></i> Mi Carrito
+                </a>
+
+                <!-- LOGOUT -->
+                <a href="#" onclick="logout()" class="logout-link">
+                    <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+                </a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+<!-- ==========================================
+   HERO CON VIDEO DE FONDO PROFUNDO (DIVER.CL)
+========================================== -->
+<!-- ========================================================= -->
+<!-- ⚓ HERO EN ALTA PRESIÓN CON VIDEO DE FONDO (CORREGIDO)    -->
+<!-- ========================================================= -->
+<header class="hero">
+    
+
+    <!-- Contenedor del texto con las clases masivas restauradas -->
+    <div class="hero-content">
+        <span class="badge">APRENDE A BUCEAR ESTE 2026</span>
+        <h1>Quiero <span>Bucear!</span></h1>
+        <p>Expediciones y bautismos submarinos profesionales.</p>
+
+        <div class="hero-btns">
+            <button class="btn-main" onclick="openModal('registro')">Agendar</button>
+            <button class="btn-main btn-secondary" onclick="location.href='tienda.html'">Tienda</button>
+        </div>
+    </div>
+</header>
+
+<!-- ========================================== -->
+<!-- ⚓ SECCIÓN: OFERTAS DEL MES (4 TARJETAS)  -->
+<!-- ========================================== -->
+<section class="ofertas-mes-section">
+  
+  <div class="ofertas-header">
+    <span class="pulse-badge"><i class="fa-solid fa-bolt"></i> EXCLUSIVO DE ESTE MES</span>
+    <h2>¡Aprovecha las Ofertas de Temporada!</h2>
+    <p>Reserva tu cupo hoy con tarifas especiales y explora los secretos del fondo marino.</p>
+  </div>
+
+  <div class="ofertas-grid">
+    
+    <!-- Tarjeta 1: Bosques Sumergidos -->
+    <div class="oferta-card promo">
+      <div class="card-img-container">
+        <img src="img/bosques.avif" alt="img lago pellaifa">
+        <div class="discount-tag">-15% OFF</div>
+      </div>
+      <div class="card-body">
+        <h3>LAGO PELLAIFA</h3>
+        <p>Inmersión guiada entre árboles milenarios en aguas de Maullín.</p>
+        <button class="btn-card-action" onclick="openModal('registro')">Reservar Promo</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2: Bautismo Submarino -->
+    <div class="oferta-card">
+      <div class="card-img-container">
+        <img src="img/los-riscos.avif" alt="img los riscos">
+        <div class="discount-tag">-15% OFF</div>
+      </div>
+      <div class="card-body">
+        <h3>LOS RISCOS</h3>
+        <p>Tu primera respiración bajo el agua con equipamiento completo incluido.</p>
+        <button class="btn-card-action" onclick="openModal('registro')">Reservar Promo</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3: Fotografía Marina -->
+    <div class="oferta-card">
+      <div class="card-img-container">
+        <img src="img/LAGO-MAIHUE.avif" alt="img lago maihue">
+        <div class="discount-tag">-15% OFF</div>
+      </div>
+      <div class="card-body">
+        <h3>LAGO MAIHUE</h3>
+        <p>Expedición técnica con bitácora audiovisual HD subacuática de regalo.</p>
+        <button class="btn-card-action" onclick="openModal('registro')">Reservar Promo</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta 4: Pack Tienda Diver -->
+    <div class="oferta-card promo-pack">
+      <div class="card-img-container">
+        <img src="img/lago-chapo.avif" alt="img lago chapo">
+        <div class="discount-tag">-15% OFF</div>
+      </div>
+      <div class="card-body">
+        <h3>LAGO CHAPO</h3>
+        <p>Instruccion tecnica y seguridad en cada inmersión</p>
+        <button class="btn-card-action" onclick="openModal('registro')">Reservar Promo</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- 🌊 SECCIÓN DE BAUTISMOS - SLIDER COMPACTO NATIVO          -->
+<!-- ========================================================= -->
+<section class="bautismos-slider-section">
+    <div class="slider-title-container">
+        <span class="badge">EXPEDICIONES 2026</span>
+        <h2>Bautismos <span>Submarinos</span></h2>
+        <p>Tu primera inmersión profesional controlada bajo altos estándares de seguridad.</p>
+    </div>
+
+    <div class="vadiver-slider-container">
+        <div class="vadiver-slider-wrapper">
+            
+            <!-- Slide 1 -->
+            <div class="vadiver-slide active">
+                <img src="img/img1.jpg" alt="Instrucción de Buceo">
+                <div class="slide-info-overlay">
+                    <h3>Instrucción Técnica Previa</h3>
+                    <p>Aprende las señales de comunicación, física básica de buceo y el uso del regulador antes de ir al agua.</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="vadiver-slide">
+                <img src="img/img2.jpg" alt="Inmersión Controlada">
+                <div class="slide-info-overlay">
+                    <h3>Inmersión Guiada 1 a 1</h3>
+                    <p>Baja con total tranquilidad acompañado en todo momento por un Buzo Comercial certificado en terreno.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="vadiver-slide">
+                <img src="img/img3.jpg" alt="Exploración Submarina">
+                <div class="slide-info-overlay">
+                    <h3>Fauna y Trazabilidad</h3>
+                    <p>Explora los fondos marinos de la región registrando de forma segura tu primera bitácora submarina.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botones de Navegación -->
+        <button class="slider-btn prev-btn" onclick="cambiarSlide(-1)">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="cambiarSlide(1)">&#10095;</button>
+
+        <!-- Puntitos -->
+        <div class="slider-dots">
+            <span class="dot active" onclick="irAlSlide(0)"></span>
+            <span class="dot" onclick="irAlSlide(1)"></span>
+            <span class="dot" onclick="irAlSlide(2)"></span>
+        </div>
+    </div>
+</section>
+
+
+<section class="galeria-section">
+
+  <h1 class="titulo-galeria">📸 Fotos </h1>
+
+  <div class="galeria">
+    <img src="img/1.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/2.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/3.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/4.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/5.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/6.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/7.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/8.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/9.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/10.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/11.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/12.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/13.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/14.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/15.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/16.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/17.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/18.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/19.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/20.jpg" alt="" onclick="abrir(this.src)">
+    <img src="img/21.jpg" alt="" onclick="abrir(this.src)">
+  </div>
+
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="cerrar()">
+  <img id="modalImg" alt="">
+</div>
+
+<!-- ========================= -->
+<!-- 🔐 MODAL AUTH -->
+<!-- ========================= -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Acceso</h2>
+
+        <form id="authForm">
+
+            <!-- REGISTRO -->
+            <div id="registroExtraFields" style="display:none;">
+                <div class="input-group">
+                    <label>Nombre</label>
+                    <input type="text" id="userName">
+                </div>
+
+                <div class="input-group">
+                    <label>Teléfono</label>
+                    <input type="text" id="userPhone">
+                </div>
+            </div>
+
+            <!-- BASE -->
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="userEmail" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="userPass" required>
+            </div>
+
+            <button type="submit" id="authSubmitBtn" class="btn-main">
+                INGRESAR
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<!-- ========================= -->
+<!-- 👤 MODAL PERFIL -->
+<!-- ========================= -->
+<div id="perfilModal" class="modal">
+    <div class="modal-content perfil-box">
+
+        <span class="close" onclick="closePerfilModal()">&times;</span>
+
+        <h2>Mi Perfil</h2>
+
+        <div class="perfil-avatar-container">
+            <img id="perfilAvatarPreview" class="perfil-img">
+        </div>
+
+        <div class="perfil-form">
+            <input type="text" id="perfilNombre" placeholder="Nombre">
+            <input type="email" id="perfilEmail" disabled>
+            <input type="text" id="perfilTelefono" placeholder="Teléfono">
+
+            <label class="file-label">
+                Seleccionar Foto
+                <input type="file" id="perfilFoto">
+            </label>
+
+            <button class="btn-main" onclick="guardarPerfil()">
+                Guardar Cambios
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- ========================= -->
+<!-- SCRIPTS -->
+<!-- ========================= -->
+<script src="auth.js"></script>
+<script src="tienda.js"></script>
+<!-- ⚓ TE FALTA ENLAZAR EL SCRIPT CENTRAL PARA ACTIVAR EL SLIDER -->
+<script src="script.js"></script>
+
+</body>
+<!-- ========================================== -->
+<!-- ⚓ FOOTER DE OPERACIONES SUBMARINAS -->
+<!-- ========================================== -->
+<!-- ========================================== -->
+<!-- ⚓ FOOTER ELITE PROFESIONAL V/ADIVER -->
+<!-- ========================================== -->
+<footer class="main-footer">
+  <div class="footer-grid">
+    <!-- Columna 1: Identidad Operativa -->
+    <div class="footer-column footer-brand">
+      <div class="logo">V/A<span>DIVER</span></div>
+      <p class="brand-subtext">Sistema turístico de inmersiones, fotografías submarinas y experiencias únicas en bosques sumergidos.</p>
+    </div>
+
+    <!-- Columna 2: Navegación del Sistema -->
+    <div class="footer-column footer-links">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="tienda.html"><i class="fa-solid fa-cart-shopping"></i> Tienda Virtual</a></li>
+        <li><a href="#" onclick="openModal('login')"><i class="fa-solid fa-right-to-bracket"></i> Control de Acceso</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Contacto Técnico Oficial -->
+    <div class="footer-column footer-contact">
+      <h4>Contacto Oficial</h4>
+      <ul>
+        <li>
+          <a href="https://wa.me" target="_blank" class="contact-item">
+            <i class="fa-brands fa-whatsapp icon-accent"></i> +56 9 3411 4891
+          </a>
+        </li>
+        <li>
+          <a href="mailto:contacto@diver.cl" class="contact-item">
+            <i class="fa-solid fa-envelope icon-accent"></i> contacto@diver.cl
+          </a>
+        </li>
+        <li>
+          <span class="contact-item-text">
+            <i class="fa-solid fa-location-dot icon-accent"></i> Maullín, Región de Los Lagos
+          </span>
+        </li>
+      </ul>
+    </div>
+
+<!-- Columna 4: Telemetría Geográfica (Radar de Ubicación Pro) -->
+<div class="footer-column footer-map">
+  <h4>Estación Geográfica</h4>
+  
+  <!-- Enlace indestructible mediante ID hexadecimal directo a Google Maps -->
+  <a href="https://www.google.com/maps/place/Maullin,+Maull%C3%ADn,+Los+Lagos/@-41.6222216,-73.6233247,14z/data=!3m1!4b1!4m6!3m5!1s0x9622a05da644a4af:0x25334637b2ace507!8m2!3d-41.6183881!4d-73.6016737!16s%2Fm%2F047f5w3?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="radar-location-card">
+    <div class="radar-grid-bg"></div>
+    <div class="radar-ping"></div>
+    <div class="radar-coordinates">
+      <span class="coord-label">LAT:</span> <span class="coord-val">-41.6143° S</span><br>
+      <span class="coord-label">LON:</span> <span class="coord-val">-73.6152° W</span>
+    </div>
+    <div class="radar-click-notice">
+      <i class="fa-solid fa-satellite-dish"></i> ABRIR MAPA SATELITAL
+    </div>
+  </a>
+
+  <div class="system-status-wrapper">
+    <span class="status-dot"></span>
+    <span class="status-text">CORE SISTEMA: ONLINE</span>
+  </div>
+</div>
+
+
+
+
+
+  <!-- Barra de Cierre Legal -->
+  <div class="footer-bottom">
+    <p>&copy; 2026 V/ADIVER Pro. Todos los derechos reservados • Operaciones Submarinas Especializadas.</p>
+    <div class="legal-links">
+      <a href="#">Términos y Protocolos</a>
+      <a href="#">Seguridad de Inmersión</a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</html>

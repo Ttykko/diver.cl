@@ -1,0 +1,40 @@
+# 🛡️ SEGURIDAD Y CREDENCIALES (CRÍTICO)
+# Jamás subir las llaves de la fortaleza
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 📦 DEPENDENCIAS
+# No subimos basura, el reclutador hará 'npm install'
+node_modules/
+jspm_packages/
+
+# 📂 ACTIVOS DINÁMICOS Y DOCUMENTACIÓN SENSIBLE
+# No subimos los MIPER o PTS reales que vendes (se sirven desde el server)
+public/downloads/*.pdf
+public/downloads/*.docx
+secure_assets/
+
+# 📜 LOGS Y DEPURACIÓN
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+logs
+*.log
+
+# 🖥️ CONFIGURACIÓN DE EDITOR (VS CODE / IDEs)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 🚀 DISTRIBUCIÓN
+dist/
+build/
+out/

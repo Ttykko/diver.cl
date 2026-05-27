@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V/ADiver Pro | Catálogo Técnico Elite</title>
+    
+    <!-- Estilos Principales -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+
+<body class="tienda-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo" onclick="location.href='index.html'">
+            V/A<span>DIVER</span>
+        </div>
+        
+        <div class="nav-auth-container">
+
+            <!-- NO LOGUEADO -->
+            <div id="guest-zone">
+                <button class="btn-account" onclick="openModal('registro')">
+                    CREAR USUARIO
+                </button>
+
+                <button class="btn-main nav-login-btn" onclick="openModal('login')">
+                    <i class="fa-solid fa-right-to-bracket"></i> INICIAR SESIÓN
+                </button>
+            </div>
+
+            <!-- LOGUEADO -->
+            <div id="user-zone" class="user-menu-container" style="display: none;">
+
+                <div class="user-info" onclick="toggleUserMenu()">
+                    <img 
+                        src="https://ui-avatars.com"
+                        id="user-avatar"
+                        alt="Avatar"
+                    >
+                    <span id="user-nav-name">Usuario</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div id="user-dropdown" class="dropdown-content">
+                    <p class="role-badge" id="user-nav-role">Cliente</p>
+                    <hr>
+
+                    <!-- 🔥 PERFIL MODAL -->
+                    <a href="#" onclick="openPerfilModal(); toggleUserMenu();">
+                        <i class="fa-solid fa-user"></i> Mi Perfil
+                    </a>
+
+                    <a href="#" onclick="event.preventDefault(); CarritoPro.toggleSidebar(); toggleUserMenu();">
+                        <i class="fa-solid fa-cart-shopping"></i> Mi Carrito
+                    </a>
+
+                    <a href="#" onclick="logout()" class="logout-link">
+                        <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero hero-tienda">
+        <div class="hero-content">
+            <span class="badge">SISTEMAS DE SOPORTE VITAL 2026</span>
+            <h1>Technical <span>Catalog</span></h1>
+            <p>
+                Hardware certificado para expediciones en la Región de Los Lagos. 
+                Sincronizado con MySQL 9.
+            </p>
+        </div>
+    </header>
+
+    <!-- CATÁLOGO -->
+    <section class="grid-tienda products-grid" id="catalogContainer">
+        <div class="loading-db">
+            <i class="fa-solid fa-sync fa-spin"></i> 
+            ACCEDIENDO A DIVER_DB_2026...
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 V/ADIVER PRO - DESARROLLADO POR EL ARQUITECTO.</p>
+            <div class="status-item">
+                <span class="status-dot online"></span>
+                <p>DATA NODE: <span>CONNECTED</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SIDEBAR CARRITO -->
+    <div id="sidebar" class="cart-sidebar">
+        <div style="padding: 20px; border-bottom: 1px solid var(--accent); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="color: var(--accent); margin: 0; font-weight: 900;">TU EQUIPO</h3>
+            <button onclick="CarritoPro.toggleSidebar()" style="background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer;">&times;</button>
+        </div>
+        
+        <div id="cart-items" style="padding: 20px; overflow-y: auto; height: calc(100vh - 220px);"></div>
+
+        <div style="position: absolute; bottom: 0; width: 100%; padding: 25px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 800;">
+                <span>VALOR TOTAL</span>
+                <span id="total-price" style="color: var(--accent);">$0</span>
+            </div>
+            <button class="btn-main" onclick="CarritoPro.finalizarCompra()" style="width: 100%;">
+                PAGAR EQUIPO <i class="fa-solid fa-credit-card"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTÓN CARRITO -->
+    <button class="cart-float" onclick="CarritoPro.toggleSidebar()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-count">0</span>
+    </button>
+
+    <!-- NOTIFICACIÓN -->
+    <div id="notificacion" class="notif-popup"></div>
+
+    <!-- MODAL AUTH -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Acceso V/ADiver</h2>
+            <form id="authForm">
+                <div id="registroExtraFields" style="display:none;">
+                    <div class="input-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="userName" placeholder="Nombre del Buzo">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="userPass" required>
+                </div>
+
+                <button type="submit" id="authSubmitBtn" class="btn-main full-width">
+                    INGRESAR
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 🔥 MODAL PERFIL -->
+    <div id="perfilModal" class="modal">
+        <div class="modal-content perfil-box">
+            <span class="close" onclick="closePerfilModal()">&times;</span>
+            <h2>Mi Perfil</h2>
+            
+            <div class="perfil-avatar-container">
+                <img id="perfilAvatarPreview" class="perfil-img">
+            </div>
+
+            <div class="perfil-form">
+                <input type="text" id="perfilNombre" placeholder="Nombre">
+                <input type="email" id="perfilEmail" disabled>
+                <input type="text" id="perfilTelefono" placeholder="Teléfono">
+
+                <label class="file-label">
+                    Seleccionar Foto
+                    <input type="file" id="perfilFoto">
+                </label>
+
+                <button class="btn-main" onclick="guardarPerfil()">
+                    Guardar Cambios
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 🔄 MODAL TRANSACCIONAL TRANSITORIO (MERCADO PAGO MOCK)  -->
+    <!-- ========================================================= -->
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon">🔥</div>
+            <h2>COMPRA REGISTRADA PRO</h2>
+            <p>La orden ha sido validada y persistida de forma exitosa en el servidor local de la base de datos MySQL.</p>
+            <div class="modal-status-tag">
+                <i class="fa-solid fa-code-branch"></i> Arquitectura: Entorno Simulado
+            </div>
+            <button id="modal-close-btn" class="modal-btn">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="auth.js"></script>
+    <script src="tienda.js"></script>
+
+</body>
+</html>
