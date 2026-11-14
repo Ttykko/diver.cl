@@ -1,0 +1,178 @@
+.tarifas-section {
+  max-width: 1150px;
+  margin: 70px auto;
+  padding: 0 4%;
+}
+
+.tarifas-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 48px auto;
+
+  .badge {
+    margin-bottom: 18px;
+    box-shadow: 0 0 18px rgba(0, 242, 255, 0.25);
+  }
+
+  h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 900;
+    color: #fff;
+    margin: 0 0 14px 0;
+
+    span {
+      color: #00f2ff;
+      text-shadow: 0 0 22px rgba(0, 242, 255, 0.55);
+    }
+  }
+
+  p {
+    color: #94a3b8;
+    font-size: 1rem;
+    max-width: 580px;
+    margin: 0 auto 28px auto;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 140px;
+    height: 2px;
+    margin: 0 auto 28px auto;
+    background: linear-gradient(90deg, transparent 0%, #00f2ff 50%, transparent 100%);
+    box-shadow: 0 0 12px #00f2ff;
+  }
+}
+
+.tarifas-toggle-box {
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-radius: 50px;
+  padding: 5px;
+  gap: 6px;
+
+  .toggle-pill {
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+
+    &.active {
+      background: linear-gradient(135deg, #00f2ff 0%, #00b8d4 100%);
+      color: #020817;
+      box-shadow: 0 0 18px rgba(0, 242, 255, 0.45);
+    }
+  }
+}
+
+.tarifas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.tarifa-card {
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 22px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &.is-featured {
+    border-color: #00f2ff;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.18);
+  }
+
+  .tarifa-badge {
+    background: rgba(0, 242, 255, 0.14);
+    border: 1px solid #00f2ff;
+    color: #00f2ff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 50px;
+  }
+
+  h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.35rem;
+    color: #fff;
+  }
+
+  .tarifa-desc {
+    color: #94a3b8;
+    font-size: 0.9rem;
+  }
+}
+
+.tarifa-price-display {
+  background: rgba(2, 8, 23, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .price-old-tag {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    text-decoration: line-through;
+  }
+
+  .price-main-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+
+    .currency-tag {
+      color: #00f2ff;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .price-number {
+      font-family: "Orbitron", sans-serif;
+      font-size: 2.15rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .price-unit {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+  }
+
+  .iva-breakdown-tag {
+    color: #00f2ff;
+    font-size: 0.78rem;
+  }
+}
+
+.tarifa-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0;
+
+  li {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+  }
+}
+
+.tarifa-cta-btn {
+  width: 100%;
+  margin-top: auto;
+}

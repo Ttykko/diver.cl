@@ -1,0 +1,337 @@
+.ofertas-mes-section {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 4%;
+}
+
+.ofertas-header {
+  text-align: center;
+  margin-bottom: 42px;
+
+  h2 {
+    font-family: "Orbitron", sans-serif;
+    color: #fff;
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+    font-weight: 900;
+    margin: 16px 0 10px 0;
+  }
+
+  p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+.expediciones-horizontales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.tarjeta-horizontal {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 310px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+
+  &:hover {
+    border-color: #00f2ff;
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);
+  }
+}
+
+.col-slider-img,
+.col-slider-tips {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.fade-up-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hud-counter-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 5;
+  background: rgba(2, 8, 23, 0.8);
+  border: 1px solid rgba(0, 242, 255, 0.4);
+  color: #00f2ff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.hud-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 5;
+
+  .hud-progress-fill {
+    height: 100%;
+    background: #00f2ff;
+    transition: width 0.4s ease;
+  }
+}
+
+.col-centro-info {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  background: linear-gradient(180deg, rgba(2, 8, 23, 0.92), rgba(15, 23, 42, 0.95));
+  border-left: 1px solid rgba(0, 242, 255, 0.15);
+  border-right: 1px solid rgba(0, 242, 255, 0.15);
+
+  .promo-pill {
+    background: rgba(0, 242, 255, 0.14);
+    border: 1px solid #00f2ff;
+    color: #00f2ff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 50px;
+  }
+
+  h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.45rem;
+    color: #fff;
+    margin: 4px 0 0 0;
+  }
+
+  .ubicacion-sub {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .btn-explorar-30 {
+    width: 100%;
+    padding: 0.75rem 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(0, 242, 255, 0.5);
+    color: #00f2ff;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 242, 255, 0.15);
+    }
+  }
+
+  .btn-main {
+    width: 100%;
+  }
+}
+
+.tips-hud-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(2, 8, 23, 0.96) 15%, rgba(2, 8, 23, 0.55) 100%);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  h4 {
+    font-family: "Orbitron", sans-serif;
+    color: #00f2ff;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #e2e8f0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+}
+
+.vertical-dots-nav {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 6;
+
+  .v-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+
+    &.active {
+      background: #00f2ff;
+      box-shadow: 0 0 8px #00f2ff;
+    }
+  }
+}
+
+.boveda-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 10005;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.boveda-modal-content {
+  background: #0f172a;
+  border: 1px solid rgba(0, 242, 255, 0.4);
+  border-radius: 18px;
+  max-width: 950px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.boveda-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .boveda-tag {
+    color: #00f2ff;
+    font-size: 0.72rem;
+    font-family: "Orbitron", sans-serif;
+  }
+
+  h3 {
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    margin-top: 4px;
+  }
+}
+
+.boveda-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  .boveda-counter {
+    color: #cbd5e1;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.85rem;
+  }
+
+  .boveda-close-btn {
+    background: rgba(255, 71, 87, 0.15);
+    border: 1px solid #ff4757;
+    color: #ff4757;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+.boveda-main-stage {
+  position: relative;
+  height: 440px;
+  background: #020617;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .boveda-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(2, 8, 23, 0.8);
+    border: 1px solid #00f2ff;
+    color: #00f2ff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.prev {
+      left: 14px;
+    }
+
+    &.next {
+      right: 14px;
+    }
+  }
+}
+
+.boveda-thumbs-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+
+  img {
+    width: 64px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    opacity: 0.55;
+    cursor: pointer;
+    border: 2px solid transparent;
+
+    &.active {
+      opacity: 1;
+      border-color: #00f2ff;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .tarjeta-horizontal {
+    grid-template-columns: 1fr;
+  }
+}
