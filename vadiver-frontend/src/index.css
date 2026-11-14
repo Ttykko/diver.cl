@@ -1,0 +1,52 @@
+
+ @import url('https://googleapis.com');
+
+:root {
+  --bg-dark: #020617;
+  --accent: #00f2ff;
+  --white: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+  --mica: blur(25px);
+  --transition: 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.btn-main {
+  padding: 0.9rem 1.8rem;
+  background: var(--accent);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-main:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.45);
+}
