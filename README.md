@@ -1,51 +1,118 @@
-# 🤿 V/ADiver Pro - Real-World Operations & Booking System
+# 🤿 V/ADIVER — Landing Page & Plataforma de Expediciones Submarinas
 
-### ⚓ Sobre el Proyecto
-**V/ADiver Pro** es una plataforma digital de alto rendimiento diseñada para la gestión de **Turismo Aventura**, **Bautismos Submarinos** y **Comercialización de Equipamiento Técnico**. 
+Aplicación web comercial desarrollada a medida para **V/ADIVER** (Maullín, Región de Los Lagos, Chile). Diseñada con una arquitectura modular y estética inmersiva de alto contraste (**HUD / Estilo 2080**) optimizada para la conversión directa de reservas de bautismos submarinos y expediciones guiadas.
 
-A diferencia de proyectos de práctica, este sistema es la evolución técnica de un servicio real que opera bajo el dominio oficial **[diver.cl](https://diver.cl)**, consolidando casi dos años de presencia digital y operaciones en la Región de Los Lagos, Chile.
-
-### 📈 Trayectoria y Evolución Técnica
-Este repositorio documenta la refactorización completa de una infraestructura estática hacia un ecosistema **Full-Stack** moderno:
-*   **Septiembre 2024:** Adquisición de infraestructura en Hostinger y lanzamiento de la marca.
-*   **2024 - 2025:** Operación continua y validación de servicios en terreno (Maullín, Calbuco, Puerto Montt).
-*   **Abril 2026 (Actual):** Implementación de arquitectura robusta optimizada para **Node.js v24** y **MySQL 9.0**, integrando persistencia de datos y escalabilidad.
+🌐 **Sitio en producción:** [diver.cl](https://diver.cl)
 
 ---
 
-### 🛠️ Stack Tecnológico (Production-Ready)
-*   **Backend:** Node.js + Express (Arquitectura resiliente y manejo de errores global).
-*   **Base de Datos:** MySQL 9.0+ (Seguridad SHA256, Pool de conexiones y optimización de latencia).
-*   **Frontend:** HTML5, CSS3 (Glassmorphism UI), JavaScript Vanilla (Carga optimizada).
-*   **Infraestructura:** Desplegado en entorno de producción real bajo dominio .cl.
+## 📸 Recorrido Visual por Secciones
+
+### 1. Portada Inmersiva & Barra de Navegación Fija (`Hero` & `Navbar`)
+> Interfaz principal con navegación *sticky* translúcida, menú hamburguesa responsivo con líneas neón CSS puras y llamado a la acción directo a WhatsApp.
+
+![Portada y Navbar V/ADIVER](./docs/01-hero-navbar.png)
 
 ---
 
-### 🚀 Funcionalidades Principales
-1.  **Sistema de Reservas (Bookings):** Flujo completo desde el cliente hasta la base de datos para Bautismos y Expediciones de Turismo.
-2.  **E-commerce Core:** Catálogo dinámico de equipamiento técnico conectado a MySQL con persistencia transaccional de carritos.
-3.  **Seguridad & Performance:** Encriptación de credenciales con `bcryptjs`, protección contra SQL Injection y manejo de rutas para SPAs.
-4.  **Galería de Expediciones:** Interfaz visual optimizada para portafolio de servicios de inmersión.
+### 2. Visor Dual de Expediciones & Bóveda Fotográfica (`Expediciones`)
+> Tarjetas horizontales asincrónicas con efecto *Ken Burns*, telemetría visual por destino (*Lago Chapo, Los Riscos, Isla Lagartija, Lago Pellaifa y Piedra del Barco*) y visor *lightbox* de hasta 30 fotografías reales por expedición.
+
+![Expediciones HUD 2080](./docs/02-expediciones-hud.png)
 
 ---
 
-### 🔄 Arquitectura Transaccional y Próximo Sprint (Mercado Pago)
-El motor de Checkout actual está **completamente integrado con el Backend y la Base de Datos MySQL**. Al presionar "Pagar Equipo", el sistema procesa la orden, valida los inventarios y registra la compra de manera exitosa en el servidor local. 
+### 3. Staff Certificado & Guías Comerciales (`Bautismos`)
+> Carrusel horizontal interactivo que presenta al equipo de buzos comerciales e instructores con encuadre adaptativo y credenciales oficiales verificadas (Armada de Chile, DAN, ACHS, Piloto R.O.V.).
 
-Para escalar el proyecto a producción comercial, se ha estructurado la arquitectura de pagos en las siguientes fases:
-
-*   **⚡ Fase Actual (Simulación de Control):** Flujo transaccional local cerrado. Al confirmar el carrito, los datos viajan al backend, impactan la base de datos de manera limpia y retornan un estado exitoso (`COMPRA REGISTRADA PRO`), simulando la respuesta positiva de un servicio externo.
-*   **⏩ Próximo Sprint:** Sustitución del controlador local por el SDK Oficial de **Mercado Pago (Checkout Pro)** en modo *Sandbox*. Se implementarán *Webhooks* asíncronos para actualizar dinámicamente los estados de la orden (`pending`, `approved`, `rejected`) directamente en el esquema relacional.
+![Staff Certificado V/ADIVER](./docs/03-guias-staff.png)
 
 ---
 
-### 📂 Estructura del Proyecto
+### 4. Tarifario Dinámico con Selector de Modalidad (`Tarifas`)
+> Comparador interactivo entre modalidad **Individual (1 Persona)** y **Pack Dúo (2 Personas)** con desglose transparente de valores Neto + IVA, precio anterior tachado y cotización prellenada al instante.
+
+![Tarifas Dinámicas](./docs/04-tarifas-dinamicas.png)
+
+---
+
+### 5. Galería Neón & Estación Geográfica (`Galeria` & `Footer`)
+> Cuadrícula responsiva de 24 capturas subacuáticas con efecto *hover* neón y pie de página técnico equipado con radar satelital de coordenadas reales de Maullín.
+
+![Galería y Footer Radar](./docs/05-galeria-footer.png)
+
+---
+
+## 🛠️ Stack Tecnológico
+
+* **Core:** [React 18](https://react.dev) + [TypeScript](https://typescriptlang.org)
+* **Entorno & Empaquetador:** [Vite](https://vitejs.dev)
+* **Estilos:** [SASS / SCSS](https://sass-lang.com) modularizado por componente + CSS Grid / Flexbox
+* **Tipografía & Iconos:** Google Fonts (*Orbitron* & *Inter*) + Font Awesome 6
+* **Despliegue:** Hostinger (Static Production Build)
+
+---
+
+## 📂 Arquitectura del Proyecto
+
 ```text
-├── public/              # Interfaz de Usuario (Frontend)
-│   ├── index.html       # Estructura semántica de alto impacto
-│   ├── style.css        # Diseño Cyber-Ocean (Glassmorphism)
-│   └── script.js        # Lógica de cliente y Fetch API transaccional
-├── server.js            # Motor Backend Robusto (Node v24) - API REST & Controladores
-├── database.sql         # Esquema de datos profesional (Usuarios, Productos, Compras)
-└── .env.example         # Guía de configuración de entorno y API Keys
+diver.cl/
+├── docs/                       # Capturas de pantalla para documentación
+└── vadiver-frontend/
+    ├── public/
+    │   └── img/                # Activos visuales organizados por destino y staff
+    │       ├── chapo/
+    │       ├── guias/
+    │       ├── lagartija/
+    │       ├── maullin/
+    │       ├── pellaifa/
+    │       └── riscos/
+    ├── src/
+    │   ├── components/
+    │   │   ├── Bautismos/      # Carrusel horizontal del equipo de guías
+    │   │   ├── Expediciones/   # Visor dual 2080 y bóveda fotográfica por spot
+    │   │   ├── Footer/         # Pie de página con radar táctico y contacto
+    │   │   ├── Galeria/        # Cuadrícula general 8x3 y visor modal
+    │   │   ├── Hero/           # Portada inmersiva principal
+    │   │   ├── Navbar/         # Barra sticky con menú hamburguesa móvil
+    │   │   ├── Tarifas/        # Tarjetas de precios con toggle Individual/Dúo
+    │   │   └── BotonWhatsApp.tsx # Componente unificado de conversión a WhatsApp
+    │   ├── App.tsx             # Ensamblaje principal de la landing page
+    │   ├── config.ts           # Fuente única de datos (spots, staff, tarifas)
+    │   └── index.css           # Variables globales y reseteo base
+    ├── package.json
+    └── tsconfig.json
 ```
+
+---
+
+## 🚀 Instalación y Despliegue Local
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com
+   cd diver.cl/vadiver-frontend
+   ```
+
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Levantar servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+   Disponible en `http://localhost:5173/`.
+
+4. **Compilar para producción (Hostinger):**
+   ```bash
+   npm run build
+   ```
+   Genera la carpeta optimizada `dist/` lista para subir al directorio `public_html` del servidor.
+
+---
+
+## 👨‍💻 Autoría
+
+Desarrollado a medida para **V/ADIVER Chile**. Todos los derechos reservados sobre el código fuente, identidad visual y material fotográfico.

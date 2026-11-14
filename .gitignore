@@ -38,3 +38,13 @@ logs
 dist/
 build/
 out/
+
+# 🪟 ARCHIVOS DE SISTEMA OPERATIVO (WINDOWS / MAC)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# ⚡ CACHÉ DE VITE Y TYPESCRIPT
+.vite/
+*.tsbuildinfo
