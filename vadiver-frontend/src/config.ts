@@ -48,9 +48,9 @@ export const STAFF_GUIAS: GuiaStaff[] = [
     cargo: "Director de Operaciones & Buzo Comercial",
     foto: "/img/guias/roger vargas.png",
     certificaciones: [
-      "Matrícula Armada de Chile (DIRECTEMAR)",
-      "Primeros Auxilios & Oxigenación DAN",
-      "Seguridad Operacional ACHS"
+      "Supervisor de Buzo Comercial",
+      "Buzo Deportivo Avanzado",
+      "Primeros Auxilios (DAN)"
     ]
   },
   {
@@ -59,8 +59,8 @@ export const STAFF_GUIAS: GuiaStaff[] = [
     cargo: "Instructor & Guía Submarino",
     foto: "/img/guias/Johan Villarroel.jpg",
     certificaciones: [
-      "Buzo Mariscador & Comercial Certificado",
-      "Especialista en Bautismos 1 a 1",
+      "Buzo Comercial",
+      "Buzo Deportivo Avanzado",
       "Rescate y Seguridad Subacuática"
     ]
   },
@@ -70,8 +70,10 @@ export const STAFF_GUIAS: GuiaStaff[] = [
     cargo: "Buzo Comercial & Piloto R.O.V.",
     foto: "/img/guias/jose ojeda vargas.png",
     certificaciones: [
-      "Matrícula Armada de Chile (DIRECTEMAR)",
+      "Buzo Comercial",
       "Operador R.O.V. Subacuático",
+      "Buzo Deportivo Avanzado",
+      "Enfermero y Relator de Primeros Auxilios ACHS",
       "Logística Marítima y Embarque"
     ]
   },
@@ -81,9 +83,9 @@ export const STAFF_GUIAS: GuiaStaff[] = [
     cargo: "Guía Técnico & Apoyo de Superficie",
     foto: "/img/guias/samuel.jpg",
     certificaciones: [
-      "Certificación en Seguridad Submarina",
-      "Asistencia en Bautismos y Expediciones",
-      "Control de Equipamiento Técnico"
+      "Buzo Intermedio",
+      "Buzo Deportivo",
+      "Operador R.O.V. Subacuático"
     ]
   }
 ];
