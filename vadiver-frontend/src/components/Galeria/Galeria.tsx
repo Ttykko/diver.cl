@@ -1,16 +1,32 @@
 import "./Galeria.scss";
 import { useState } from "react";
-import { FOTOS_GALERIA } from "../../config";
+
+const FOTOS_GALERIA = Array.from({ length: 37 }, (_, i) => `/img/${i + 1}.jpg`);
 
 export default function Galeria() {
-  const [modalImg, setModalImg] = useState<string | null>(null);
+  const [fotoActiva, setFotoActiva] = useState<string | null>(null);
+
   return (
-    <>
-      <section className="galeria-section" id="galeria">
-        <h1 className="titulo-galeria">📸 Fotos</h1>
-        <div className="galeria">{FOTOS_GALERIA.map((ruta, i) => <img key={i} src={ruta} alt={`V/ADiver ${i + 1}`} loading="lazy" onClick={() => setModalImg(ruta)} />)}</div>
-      </section>
-      {modalImg && <div className="modal show" onClick={() => setModalImg(null)}><img src={modalImg} alt="Vista ampliada" /></div>}
-    </>
+    <section className="galeria-section" id="galeria">
+      <h2 className="titulo-galeria">📸 Fotos</h2>
+
+      <div className="galeria">
+        {FOTOS_GALERIA.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Expedición Submarina V/ADiver ${index + 1}`}
+            loading="lazy"
+            onClick={() => setFotoActiva(src)}
+          />
+        ))}
+      </div>
+
+      {fotoActiva && (
+        <div className="modal show" onClick={() => setFotoActiva(null)}>
+          <img src={fotoActiva} alt="Vista ampliada V/ADiver" />
+        </div>
+      )}
+    </section>
   );
 }

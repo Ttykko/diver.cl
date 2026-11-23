@@ -29,18 +29,19 @@ export const EXPEDICIONES_HORIZONTALES: Expedicion[] = [
     { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Sujeto a condiciones de marea y ventana climática. Se realiza charla histórica y técnica previa al embarque." },
     { icono: "fa-fish", titulo: "Fauna Marina", texto: "Los restos del naufragio funcionan como arrecife artificial lleno de vida marina, esponjas y crustáceos." }
   ]},
-   {
+     {
     id: 4,
-    nombre: "LAGO PELLAIFA",
-    ubicacion: "Bosques Sumergidos",
+    nombre: "LAGOS PELLAIFA, MAIHUE Y CABURGUA",
+    ubicacion: "Bosques Sumergidos • Sur de Chile",
     iconoUbicacion: "fa-tree",
     fotos: generarFotosSpot("pellaifa", 28),
     tips: [
-      { icono: "fa-water", titulo: "Descripción", texto: "Inmersión guiada entre árboles milenarios sumergidos que conservan sus troncos intactos bajo el agua." },
-      { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Mantener control de aleteo suave para no levantar sedimento del fondo y disfrutar de una visibilidad mística." },
-      { icono: "fa-video", titulo: "Bitácora Visual", texto: "Un escenario único para fotografía submarina de paisaje entre copas y ramas sumergidas." }
+      { icono: "fa-water", titulo: "Descripción", texto: "Inmersiones guiadas en los lagos Pellaifa, Maihue y Caburgua entre bosques milenarios y paredes sumergidas." },
+      { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Mantener control de aleteo suave para no levantar sedimento y disfrutar de una visibilidad cristalina." },
+      { icono: "fa-video", titulo: "Bitácora Visual", texto: "Escenarios únicos para fotografía submarina de paisaje entre troncos sumergidos y aguas turquesas." }
     ]
   },
+
 
   { id: 5, nombre: "PIEDRA DEL BARCO", ubicacion: "Maullín, Región de Los Lagos", iconoUbicacion: "fa-location-dot", fotos: generarFotosSpot("maullin", 15), tips: [
     { icono: "fa-compass", titulo: "Descripción", texto: "Exploración submarina de formaciones rocosas emblemáticas en la costa de Maullín con rica biodiversidad." },
