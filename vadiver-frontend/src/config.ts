@@ -29,11 +29,19 @@ export const EXPEDICIONES_HORIZONTALES: Expedicion[] = [
     { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Sujeto a condiciones de marea y ventana climática. Se realiza charla histórica y técnica previa al embarque." },
     { icono: "fa-fish", titulo: "Fauna Marina", texto: "Los restos del naufragio funcionan como arrecife artificial lleno de vida marina, esponjas y crustáceos." }
   ]},
-  { id: 4, nombre: "LAGO PELLAIFA", ubicacion: "Bosques Sumergidos", iconoUbicacion: "fa-tree", fotos: generarFotosSpot("pellaifa", 30), tips: [
-    { icono: "fa-water", titulo: "Descripción", texto: "Inmersión guiada entre árboles milenarios sumergidos que conservan sus troncos intactos bajo el agua." },
-    { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Mantener control de aleteo suave para no levantar sedimento del fondo y disfrutar de una visibilidad mística." },
-    { icono: "fa-video", titulo: "Bitácora Visual", texto: "Un escenario único para fotografía submarina de paisaje entre copas y ramas sumergidas." }
-  ]},
+   {
+    id: 4,
+    nombre: "LAGO PELLAIFA",
+    ubicacion: "Bosques Sumergidos",
+    iconoUbicacion: "fa-tree",
+    fotos: generarFotosSpot("pellaifa", 28),
+    tips: [
+      { icono: "fa-water", titulo: "Descripción", texto: "Inmersión guiada entre árboles milenarios sumergidos que conservan sus troncos intactos bajo el agua." },
+      { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Mantener control de aleteo suave para no levantar sedimento del fondo y disfrutar de una visibilidad mística." },
+      { icono: "fa-video", titulo: "Bitácora Visual", texto: "Un escenario único para fotografía submarina de paisaje entre copas y ramas sumergidas." }
+    ]
+  },
+
   { id: 5, nombre: "PIEDRA DEL BARCO", ubicacion: "Maullín, Región de Los Lagos", iconoUbicacion: "fa-location-dot", fotos: generarFotosSpot("maullin", 15), tips: [
     { icono: "fa-compass", titulo: "Descripción", texto: "Exploración submarina de formaciones rocosas emblemáticas en la costa de Maullín con rica biodiversidad." },
     { icono: "fa-lightbulb", titulo: "Tips de Inmersión", texto: "Recomendado desayunar liviano 2 horas antes de la inmersión e hidratarse bien previo al ingreso al agua." },
